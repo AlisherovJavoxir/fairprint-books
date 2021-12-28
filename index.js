@@ -1,4 +1,3 @@
-const { on } = require('nodemon');
 const { Telegraf, Markup } = require('telegraf')
 require('dotenv').config()
 const commands = require('./commands')
@@ -45,11 +44,9 @@ function addAction(name,text){
                                     ctx.answerCbQuery()
                                     let curPages = pages * price
                                     let allPrices = curPages + cover
-                                    ctx.replyWithHTML(`<b>📃 Buyurtma qo'gozi</b>\n\n<b>📖 Kitobingiz sahifalari:</b> ${pages}\n<b>📄 Kitobingiz turi:</b> ${color}\n<b>📘 Kitobingiz hajmi:</b> ${size}\n\n<b>💰 Umumiy narx:</b> ${curPages} so'm \n<b>📕 "Переплет" va "Термоклей" bilan:</b> ${allPrices} so'm\n\n<b>❕ Iltimos, botni yangilang - /start</b>`, Markup.inlineKeyboard([
-                                        [Markup.button.urlButton('Buy','https://t.me/fair_print')]
-                                    ]), {
+                                    ctx.replyWithHTML(`<b>📃 Buyurtma qo'gozi</b>\n\n<b>📖 Kitobingiz sahifalari:</b> ${pages}\n<b>📄 Kitobingiz turi:</b> ${color}\n<b>📘 Kitobingiz hajmi:</b> ${size}\n\n<b>💰 Umumiy narx:</b> ${curPages} so'm \n<b>📕 "Переплет" va "Термоклей" bilan:</b> ${allPrices} so'm\n\n<b>❕ Iltimos, botni yangilang - /start</b>`, {
                                         disable_web_page_preview: true
-                                    }, orderBtn)
+                                    })
                                     pages = 0
                                 }
                                 catch (e){
