@@ -7,6 +7,7 @@ var acceptNumber = false;
 var pages = 0;
 var priceOfPages = 0;
 var format = 0;
+var firstPrice = 0;
 var finalPrice = 0;
 var colorFormat;
 var cover;
@@ -54,9 +55,10 @@ bot.on('message', (ctx) => {
 
 function formats(name, price, color, size){
     bot.action(name, (ctx) => {
-        sizeFormat = size;
-        colorFormat = color;
         ctx.answerCbQuery();
+        sizeFormat = size;
+        firstPrice = pages * price; 
+        colorFormat = color;
         priceOfPages = pages * price;
         ctx.reply("3. Kitobingiz uchun muqova turini tanlang.", Markup.inlineKeyboard(
             [
@@ -75,7 +77,7 @@ bot.action('pp', (ctx) => {
     else {
         finalPrice = priceOfPages += 5000
     }
-    ctx.replyWithHTML(`<b>📃 Buyurtma qo'gozi</b>\n\n<b>📖 Kitobingiz sahifalari:</b> ${pages}\n<b>📄 Kitobingiz turi:</b> ${colorFormat}\n<b>📘 Kitobingiz hajmi:</b> A${sizeFormat}\n\n<b>💰 Narx:</b> ${pages * price} so'm \n<b>📕 ${cover} bilan:</b> ${finalPrice} so'm\n\n<b><a href="https://t.me/fair_print">🖨 Buyurtma berish</a></b>\n\n<b>❕ Iltimos, botni yangilang - /start</b>`, {
+    ctx.replyWithHTML(`<b>📃 Buyurtma qo'gozi</b>\n\n<b>📖 Kitobingiz sahifalari:</b> ${pages}\n<b>📄 Kitobingiz turi:</b> ${colorFormat}\n<b>📘 Kitobingiz hajmi:</b> A${sizeFormat}\n\n<b>💰 Narx:</b> ${firstPrice} so'm \n<b>📕 ${cover} bilan:</b> ${finalPrice} so'm\n\n<b><a href="https://t.me/fair_print">🖨 Buyurtma berish</a></b>\n\n<b>❕ Iltimos, botni yangilang - /start</b>`, {
         disable_web_page_preview: true
     })
 })
@@ -89,7 +91,7 @@ bot.action('tk', (ctx) => {
     else {
         finalPrice = priceOfPages += 6000
     }
-    ctx.replyWithHTML(`<b>📃 Buyurtma qo'gozi</b>\n\n<b>📖 Kitobingiz sahifalari:</b> ${pages}ta\n<b>📄 Kitobingiz turi:</b> ${colorFormat}\n<b>📘 Kitobingiz hajmi:</b> A${sizeFormat}\n\n<b>💰 Narx:</b> ${pages * price} so'm \n<b>📕 ${cover} bilan:</b> ${finalPrice} so'm\n\n<b><a href="https://t.me/fair_print">🖨 Buyurtma berish</a></b>\n\n<b>❕ Iltimos, botni yangilang - /start</b>`, {
+    ctx.replyWithHTML(`<b>📃 Buyurtma qo'gozi</b>\n\n<b>📖 Kitobingiz sahifalari:</b> ${pages}ta\n<b>📄 Kitobingiz turi:</b> ${colorFormat}\n<b>📘 Kitobingiz hajmi:</b> A${sizeFormat}\n\n<b>💰 Narx:</b> ${firstPrice} so'm \n<b>📕 ${cover} bilan:</b> ${finalPrice} so'm\n\n<b><a href="https://t.me/fair_print">🖨 Buyurtma berish</a></b>\n\n<b>❕ Iltimos, botni yangilang - /start</b>`, {
         disable_web_page_preview: true
     })
 })
