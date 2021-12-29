@@ -75,7 +75,7 @@ bot.action('pp', (ctx) => {
     else {
         finalPrice = priceOfPages += 5000
     }
-    ctx.replyWithHTML(`<b>📃 Buyurtma qo'gozi</b>\n\n<b>📖 Kitobingiz sahifalari:</b> ${pages}ta\n<b>📄 Kitobingiz turi:</b> ${colorFormat}\n<b>📘 Kitobingiz hajmi:</b> A${sizeFormat}\n\n<b>💰 Narx:</b> ${pages * price} so'm \n<b>📕 ${cover} bilan:</b> ${finalPrice} so'm\n\n<b><a href="https://t.me/fair_print">🖨 Buyurtma berish</a></b>\n\n<b>❕ Iltimos, botni yangilang - /start</b>`, {
+    ctx.replyWithHTML(`<b>📃 Buyurtma qo'gozi</b>\n\n<b>📖 Kitobingiz sahifalari:</b> ${pages}\n<b>📄 Kitobingiz turi:</b> ${colorFormat}\n<b>📘 Kitobingiz hajmi:</b> A${sizeFormat}\n\n<b>💰 Narx:</b> ${pages * price} so'm \n<b>📕 ${cover} bilan:</b> ${finalPrice} so'm\n\n<b><a href="https://t.me/fair_print">🖨 Buyurtma berish</a></b>\n\n<b>❕ Iltimos, botni yangilang - /start</b>`, {
         disable_web_page_preview: true
     })
 })
